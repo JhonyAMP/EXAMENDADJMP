@@ -1,7 +1,0 @@
-spring:
-  application:
-    name: jam-gateway-servidor
-  profiles:
-    active: development
-  config:
-    import: optional:configserver:http://jhony:root@localhost:7070
