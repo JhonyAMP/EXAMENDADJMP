@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: jam-libro-servicio
+  profiles:
+    active: development
+  config:
+    import: optional:configserver:http://jhony:root@localhost:7070

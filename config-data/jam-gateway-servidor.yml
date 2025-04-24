@@ -1,0 +1,29 @@
+server:
+  port: 8085
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8090/eureka
+  instance:
+    hostname: localhost
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enable: true
+      routes:
+        - id: jam-libro-servicio
+          uri: lb://jam-libro-servicio
+          predicates:
+            - Path=/libros/**
+        - id: jam-usuario-servicio
+          uri: lb://jam-usuario-service
+          predicates:
+            - Path=/usuarios/**
+        - id: jam-prestamo-service
+          uri: lb://jam-prestamo-service
+          predicates:
+            - Path=/prestamos/**
